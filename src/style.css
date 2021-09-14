@@ -1,0 +1,259 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+
+/* square, square-row, square-cell, square-cell__active */
+
+#seaFight {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    padding-top: 56px;
+    overflow: hidden;
+}
+
+.sf_content {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sf_arena {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+    padding: 40px;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: auto;
+    /* height: 100%; */
+    transition: all ease-in-out .5s;
+    
+}
+
+
+#sf_player, #sf_aponent {
+    position: relative;
+    margin: 20px;
+}
+
+.sf-row {
+    display: flex;
+    margin-top: -1px;
+    /* position: relative; */
+}
+
+.sf-cell, .sf-cell_fixed, .sf-edit, .seaFight-move, .sf-profile {
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgb(209, 209, 209);
+    margin-left: -1px;
+    text-align: center;
+    /* line-height: 30px; */
+    cursor: pointer;
+    z-index: 10;
+}
+
+
+.sf-cell:hover {
+    background-color: #80ff8671;
+    /* border: 1px solid #80ff8671; */
+    z-index: 200;
+}
+
+.sf_fixed {
+    pointer-events: none;
+}
+
+
+.sf-edit, .sf-block, .sf-block:hover, .sf-edit:hover {
+    color: white;
+    background-color: #0f9215;
+    border: 1px solid #0f9215;
+    z-index: 100;
+    position: relative;
+}
+
+.sf-edit:hover {
+    background-color: #0d7e13;
+    /* border: 2px solid rgb(255, 255, 255); */
+}
+
+.sf-edit:hover::before {
+    position: absolute;
+    display: block;
+    top: 2px; left: 2px;
+    z-index: 200;
+    content: url(img/ic-close-24px.svg);
+    width: 12px;
+    height: 12px;
+    line-height: 30px;
+}
+
+.seaFight-move {
+    background-color: rgba(200,200,200);
+    opacity: .5;
+    pointer-events: none;
+    touch-action: none;
+}
+
+.sf-profile {
+    background-color: #0f921677;
+    border: 1px solid #0f921677;
+}
+
+.sf-shot, .sf-shot:hover {
+    color: white;
+    background-color: #8080ff;
+    border: 1px solid #8080ff;
+    z-index: 100;
+    /* pointer-events: none; */
+}
+
+.seaFight-strike, .seaFight-strike:hover {
+    color: white;
+    background-color: #bebebe;
+    border: 1px solid #969696;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.sf-cell:first-child {
+    margin: 0;
+}
+
+.sf_tools {
+    display: flex;
+    justify-content: center;
+    background-color: #eee;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 0px;
+    z-index: 999;
+}
+
+.btn {
+    background-color: #8080ff;
+    color: white;
+    text-align: center;
+    line-height: 32px;
+    height: 32px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.btn[disabled] {
+    opacity: .5;
+}
+
+.sf-log {
+    padding: 20px;
+    float: right;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+}
+
+.sf-log .card {
+    width: auto;
+    
+}
+
+.sf-log .card-content {
+    padding: 10px;
+    
+}
+
+.sf-nav {
+    z-index: 999;
+    height: 56px;
+    position: fixed;
+    top: 0px;
+    background-image: url("img/battle_ship.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.hide {
+    display: none !important;
+}
+
+@media screen and (min-width: 621px) and (max-width: 700px) {
+    .sf_arena {
+        padding: 20px;
+    }
+    
+    #sf_player, #sf_aponent {
+        margin: 0px;
+    }
+
+    .sf-cell, .sf-cell_fixed, .sf-edit, .seaFight-move, .sf-profile {
+        height: 24px;
+        width: 24px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .sf-cell, .sf-cell_fixed, .sf-edit, .seaFight-move, .sf-profile {
+        /* pointer-events: none; */
+    }
+
+    .sf_arena {
+        width: 100%;
+        height: 100%;
+        /* margin-left: 0%; */
+        padding: 0px 0px 40px 0px ;
+    }
+
+    #sf_player, #sf_aponent {
+        margin: auto;
+    }
+
+    .sf_arena_fight {
+        width: 200%;
+        margin-left: 0%;
+        transition: margin-left .5s;
+    }
+
+    .sf_arena_show {
+        margin-left: -100%;
+    }
+    
+}
+
+@media (pointer: coarse) {
+    
+    .sf-cell:hover {
+        background: none;
+    }
+    
+    .sf-edit:hover {
+        background-color: #0f9215;
+        border: 1px solid #0f9215;
+    }
+
+    .sf-edit:hover::before {
+        content: '';
+    }
+
+    .sf-shot:hover {
+        background-color: #8080ff;
+        border: 1px solid #8080ff;
+        z-index: 100;
+        /* pointer-events: none; */
+    }
+    
+    .seaFight-strike, .seaFight-strike:hover {
+        
+        background-color: #bebebe;
+        border: 1px solid #969696;
+        
+    }
+}
+
